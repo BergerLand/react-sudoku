@@ -41,7 +41,7 @@ let renderRow = (row: Array<number>) => {
   ]
 }
 
-let renderData = (data: any) => {
+let renderData = (data: number) => {
   return [
     <td>{data}</td>
   ]
