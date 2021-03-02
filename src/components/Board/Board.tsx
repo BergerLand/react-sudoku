@@ -51,9 +51,7 @@ let renderData = (data: any) => {
 const Board: React.FC = () => (
   <div className="Board">
     Board Component
-    <table>
       {renderTable()}
-    </table>
   </div>
 );
 
