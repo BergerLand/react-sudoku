@@ -1,23 +1,23 @@
 import React from 'react';
 import './Board.css';
 
-let tableData = [
-  [0, 1, 2, 3, 4, 5, 6, 7, 8],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
+let isRowValid = (row: Array<number>) => {
 
-let renderTable = (table: Array<Array<number>>) => {
+}
+
+let isColumnValid = (column: Array<number>) => {
+  
+}
+
+let isSquareValid = (square: Array<number>) => {
+  
+}
+
+let renderTable = (board: Array<Array<number>>) => {
   return [
     <table>
       {
-        table.map((row, index) => {
+        board.map((row, index) => {
           return [
             renderRow(row)
           ]
@@ -29,11 +29,11 @@ let renderTable = (table: Array<Array<number>>) => {
 
 let renderRow = (row: Array<number>) => {
   return [
-    <tr>
+    <tr className="border-bottom">
       {
-        row.map((data) => {
+        row.map((data, index) => {
           return [
-            renderData(data)
+            renderData(data, index)
           ]
         })
       }
@@ -41,16 +41,18 @@ let renderRow = (row: Array<number>) => {
   ]
 }
 
-let renderData = (data: number) => {
+let renderData = (data: number, index: number) => {
   return [
-    <td>{data}</td>
+    <td>
+      <input type="text" value={data} />
+    </td>
   ]
 }
 
-const Board: React.FC = () => (
+const Board: React.FC<any> = (props) => (
   <div className="Board">
     Board Component
-      {renderTable(tableData)}
+      {renderTable(props.table)}
   </div>
 );
 
