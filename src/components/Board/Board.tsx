@@ -13,6 +13,10 @@ let isSquareValid = (square: Array<number>) => {
   
 }
 
+let isBoardvalid = () => {
+  
+}
+
 let renderTable = (board: Array<Array<number>>) => {
   return [
     <table>
