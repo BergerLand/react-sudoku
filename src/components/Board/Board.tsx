@@ -29,7 +29,7 @@ let renderTable = (board: Array<Array<number>>) => {
 
 let renderRow = (row: Array<number>) => {
   return [
-    <tr className="border-bottom">
+    <tr>
       {
         row.map((data, index) => {
           return [
