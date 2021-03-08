@@ -17,27 +17,34 @@ let isBoardvalid = () => {
   
 }
 
+let handleChange = (event: any) => {
+
+}
+
 let renderTable = (board: Array<Array<number>>) => {
   return [
-    <table>
+    <table key="table">
+      <tbody>
       {
         board.map((row, index) => {
           return [
-            renderRow(row)
+            renderRow(row, index)
           ]
         })
       }
+      </tbody>
     </table>
   ]
 }
 
-let renderRow = (row: Array<number>) => {
+let renderRow = (row: Array<number>, index: number) => {
   return [
-    <tr>
+    <tr key={index}>
       {
-        row.map((data, index) => {
+        row.map((data, i) => {
+          i += (index * 8) + index;
           return [
-            renderData(data, index)
+            renderData(data, i)
           ]
         })
       }
@@ -47,8 +54,8 @@ let renderRow = (row: Array<number>) => {
 
 let renderData = (data: number, index: number) => {
   return [
-    <td>
-      <input type="text" value={data} />
+    <td key="td_{index}">
+      <input key="input_{index}" type="text" value={data} onChange={(event) => {handleChange(event.target.value)}} />
     </td>
   ]
 }
